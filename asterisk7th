@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+int main() {
+    int apple = 3;  // This is the total height of the upper half 
+    int mango = 1;  // This tracks our current row number
+    int j;          // This will track our inner loops for spaces and stars
+
+    // --- UPPER HALF (including middle row) ---
+    while (mango <= apple) {
+        // Inner loop 1: Print spaces
+        j = 0;
+        while (j < apple - mango) {
+            printf(" ");
+            j++;
+        }
+
+        // Inner loop 2: Print stars
+        j = 0;
+        while (j < (2 * mango) - 1) {
+            printf("*");
+            j++;
+        }
+
+        printf("\n"); // Move to next line
+        mango++;      // Move to the next row up
+    }
+
+    // --- LOWER HALF ---
+    mango = apple - 1; // Start just below the middle row
+    while (mango >= 1) {
+        // Inner loop 1: Print spaces
+        j = 0;
+        while (j < apple - mango) {
+            printf(" ");
+            j++;
+        }
+
+        // Inner loop 2: Print stars
+        j = 0;
+        while (j < (2 * mango) - 1) {
+            printf("*");
+            j++;
+        }
+
+        printf("\n"); // Move to next line
+        mango--;      // Move to the next row down
+    }
+
+    return 0;
+}
+
